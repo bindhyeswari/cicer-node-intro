@@ -3,20 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-    <script>
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET', '/json');
-        xhr.setRequestHeader('accept', 'application/json');
-        xhr.addEventListener('readystatechange', function () {
-            if( xhr.readyState === 4 && xhr.status === 200 ) {
-                var obj = JSON.parse(xhr.responseText);
-                console.log(obj);
-            }
-        });
-        xhr.send();
-    </script>
+    <link rel="stylesheet" href="/css/base.css"/>
+    <style>
+        body {
+            padding: 1em;
+        }
+        input {
+            display: block;
+            margin: 1em;
+        }
+
+        [name="frm_test"] [name="title"] {
+            width: 60%;
+            margin: 1em;
+            display: inline-block;
+        }
+        input[type="submit"] {
+            margin-left: 0;
+            display: inline-block;
+        }
+        div.add_question {
+            padding: 1em;
+        }
+        div.add_question input {
+            width: 80%;
+        }
+        h1 {
+            margin-top: 0;
+            font-weight: 200;
+            font-size: 2em;
+        }
+        div.left, div.right {
+            width: 50%;
+            box-sizing: border-box;
+            float: left;
+        }
+        div.left {
+            border-right: 1px solid gray;
+        }
+        div.right {
+            padding: 1em;
+        }
+        #add_question {
+            margin-left: 1em;
+        }
+    </style>
+    <script src="/js/create-test.js"></script>
 </head>
 <body>
-    This page will be used to set up the test
+    <div class="left">
+        <form name="frm_test">
+            <input type="text" placeholder="Title of the test" name="title"/>
+            <input type="submit" value="Save Test"/>
+            <div class="add_question">
+                <h1>Add a question</h1>
+                <input type="text" placeholder="question" name="question"/>
+                <input type="text" placeholder="correct option" name="option1"/>
+                <input type="text" placeholder="wrong option" name="option2"/>
+                <input type="text" placeholder="wrong option" name="option3"/>
+                <input type="text" placeholder="wrong option" name="option4"/>
+                <button id="add_question">Add Question</button>
+            </div>
+        </form>
+
+
+    </div>
+    <div class="right" id="allquestions">
+
+    </div>
+    
 </body>
 </html>
