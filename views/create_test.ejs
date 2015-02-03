@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', '/json');
+        xhr.setRequestHeader('accept', 'application/json');
+        xhr.addEventListener('readystatechange', function () {
+            if( xhr.readyState === 4 && xhr.status === 200 ) {
+                var obj = JSON.parse(xhr.responseText);
+                console.log(obj);
+            }
+        });
+        xhr.send();
+    </script>
+</head>
+<body>
+    This page will be used to set up the test
+</body>
+</html>
